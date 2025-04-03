@@ -7,6 +7,7 @@ public class cameraPan : MonoBehaviour
     public float zoomSpeed = 850f; // Speed of zooming
     public float rotationSpeed = 15f; // Speed of rotation
 
+    // aton components
     public Slider panSpeedSlider;
     public Slider zoomSpeedSlider;
     public Slider rotationSpeedSlider;
@@ -19,6 +20,7 @@ public class cameraPan : MonoBehaviour
 
     void Start()
     {
+        // amuni ang value halin sa slider naton 
         panSpeedSlider.value = panSpeed;
         zoomSpeedSlider.value = zoomSpeed;
         rotationSpeedSlider.value = rotationSpeed;
@@ -43,6 +45,7 @@ public class cameraPan : MonoBehaviour
         if (Input.GetMouseButton(1))
         {
             Vector3 delta = Input.mousePosition - lastMousePosition;
+
             transform.Rotate(Vector3.up, delta.x * rotationSpeed * Time.deltaTime, Space.World);
             transform.Rotate(Vector3.right, -delta.y * rotationSpeed * Time.deltaTime, Space.Self);
         }
